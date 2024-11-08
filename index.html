@@ -5,13 +5,134 @@
     <title>检测报告详情</title>
 </head>
 <body>
-    <p>检测报告详情</p>
+	<style>
+		/* html { font-size:16px;} */
+		.title{
+			font-size:16px
+		}
+		.content-box{
+			width: 98%;
+	
+			border: 1px solid #cfcfcf;
+			border-radius: 5px;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			color: #a6a6a6;
+			
+		}
+		.top-box{
+			padding: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 16px;
+			background-color: #efefef;
+			
+		}
+		.normal-report{
+			padding: 5px 10px;
+			background-color: #06c601;
+			border-radius: 20px;
+			color: #ffffff ;
+		}
+		.text{
+			border-top: 1px solid #cfcfcf;
+			padding: 10px;
+		}
+	</style>
+	    <div id="container" class="content-box">
+			
+		</div>
+	
+	    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-    // 获取URL中的参数
-    var urlParams = new URLSearchParams(window.location.search)
-    // 获取名为"id"的参数值
-    var param1 = urlParams.get('id');
-    console.log(param1);
+		// 获取URL中的参数
+		var urlParams = new URLSearchParams(window.location.search)
+		// 获取名为"id"的参数值
+		var param1 = urlParams.get('id')?urlParams.get('id') : 0;
+		let data = [{
+			institutionName:'四川晨升工程检测有限公司',
+			projectName:'空港发展·云璟铂樾住宅及配建幼儿园建设项目',
+			reportNumber:'SCCSQ55A2400002',
+			reportDate:'2024-03-22',
+			category:'见证取样',
+			result:'见报告',
+			client:'成都翰云置业有限公司',
+			censorship:'罗世刚',
+			detectedData:'见报告',
+			qualitySupervision:'/',
+			engineeringLocation:'总平基础级配碎石垫层',
+			testingItems:'土工击实',
+			des:'见报告1'
+		},
+		{
+			institutionName:'四川晨升工程检测有限公司',
+			projectName:'空港发展·云璟铂樾住宅及配建幼儿园建设项目',
+			reportNumber:'SCCSQ55A2400002',
+			reportDate:'2024-03-22',
+			category:'见证取样',
+			result:'见报告',
+			client:'成都翰云置业有限公司',
+			censorship:'罗世刚',
+			detectedData:'见报告',
+			qualitySupervision:'/',
+			engineeringLocation:'总平基础级配碎石垫层',
+			testingItems:'土工击实',
+			des:'见报告2'
+		}]
+		       // 循环判断应该生成的盒子
+		        for (let i = 0; i < data.length; i++) {
+					if(param1 == i){
+						$(`
+						<div class="top-box" >
+							<div>检测报告详情</div>
+							<div class="normal-report">正常报告</div>
+						</div>
+						<div class='text'>
+							<div>机构名称：${data[i].institutionName}</div>
+						</div>
+						<div class='text'>
+							<div>工程名称：${data[i].projectName}</div>
+						</div>
+						<div class='text'>
+							<div>报告编号：${data[i].reportNumber}</div>
+						</div>
+						<div class='text'>
+							<div>报告日期：${data[i].reportDate}</div>
+						</div>
+						<div class='text'>
+							<div>检测资质类别：${data[i].category}</div>
+						</div>
+						<div class='text'>
+							<div>检测结果：${data[i].result}</div>
+						</div>
+						<div class='text'>
+							<div>委托单位：${data[i].client}</div>
+						</div>
+						<div class='text'>
+							<div>见证送检人：${data[i].censorship}</div>
+						</div>
+						<div class='text'>
+							<div>检测数据：${data[i].detectedData}</div>
+						</div>
+						<div class='text'>
+							<div>质量监督号：${data[i].qualitySupervision}</div>
+						</div>
+						<div class='text'>
+							<div>工程部位：${data[i].engineeringLocation}</div>
+						</div>
+						<div class='text'>
+							<div>检测项目：${data[i].testingItems}</div>
+						</div>
+						<div class='text'>
+							<div>描述：${data[i].des}</div>
+						</div>
+						 `)
+						 .appendTo('#container');
+					}
+	
+		        }
     </script>
 </body>
 </html>
