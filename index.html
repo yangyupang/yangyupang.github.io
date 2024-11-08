@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>测试</title>
-  </head>
-  <body>
-    <div id="app">
-      <h1>我是测试页面</h1>
-    </div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <title>检测报告详情</title>
+</head>
+<body>
+    <p>检测报告详情</p>
+    <script>
+    // 获取URL中的参数
+    var urlParams = new URLSearchParams(window.location.search)
+    // 获取名为"id"的参数值
+    var param1 = urlParams.get('id');
+    console.log(param1);
+    </script>
+</body>
 </html>
